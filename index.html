@@ -356,6 +356,85 @@
         text-align: center;
       }
     }
+
+    @media (max-width: 480px) {
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .navbar div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .navbar a {
+    font-size: 0.75rem;
+    margin: 0.3rem 0.8rem;
+  }
+
+  /* Hero Section */
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
+  }
+
+  /* Profile Picture */
+  .profile-pic {
+    width: 140px;
+    height: 140px;
+  }
+
+  /* Section Heading */
+  .section h2 {
+    font-size: 1.6rem;
+  }
+
+  /* About & Skills cards */
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card,
+  .skill-card,
+  .project-card {
+    padding: 1rem;
+  }
+
+  /* Projects */
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0;
+  }
+
+  .project-card img {
+    height: 160px;
+  }
+
+  /* Footer */
+  .social-links a {
+    font-size: 1.5rem;
+    margin: 0 0.8rem;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -558,4 +637,5 @@
   </section>
 </body>
 </html>
+
 

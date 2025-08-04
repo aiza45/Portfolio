@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AYEZA'S - Portfolio</title>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #eee;
+      line-height: 1.7;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+      z-index: 1000;
+      color: #eee;
+    }
+
+    .navbar .logo {
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .navbar a {
+      color: #eee;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #fff;
+    }
+
+    .navbar a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #fff;
+      left: 0;
+      bottom: -4px;
+      transition: width 0.3s ease;
+    }
+
+    .navbar a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+      color: #eee;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      width: 100%;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+
+    .profile-wrapper {
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #eee;
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+    }
+
+    .hero-text {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      text-align: left;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+      color: #fff;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+    }
+
+    .cta-button {
+      background: #fff;
+      color: #000;
+      padding: 0.9rem 2.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+      margin: 0 0.5rem;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .cta-button:hover {
+      background: #eee;
+      color: #000;
+      box-shadow: 0 6px 15px rgba(255, 255, 255, 0.6);
+    }
+
+    /* Sections */
+    .section {
+      padding: 6rem 2rem;
+      max-width: 900px;
+      margin: 0 auto 3rem auto;
+      position: relative;
+      background: #111;
+      color: #eee;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+
+    .section h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: #fff;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .about-card,
+    .skill-card,
+    .project-card {
+      background: #222;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease;
+      color: #eee;
+    }
+
+    .about-card:hover,
+    .skill-card:hover,
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+    }
+
+    .skill-card h3,
+    .project-card h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      font-size: 1rem;
+      color: #ccc;
+      padding-left: 1rem;
+    }
+
+    .skill-card ul li {
+      margin: 0.5rem 0;
+    }
+
+    /* Projects grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+      padding: 0 1rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 2px solid #eee;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .project-card-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card p {
+      color: #ccc;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .project-card a {
+      color: #eee;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      color: #eee;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .social-links a {
+      color: #eee;
+      margin: 0 1.5rem;
+      font-size: 1.8rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .social-links a:hover {
+      color: #fff;
+      transform: scale(1.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        background: #000;
+      }
+
+      .navbar a {
+        margin: 0.5rem;
+      }
+
+      .section h2 {
+        font-size: 2rem;
+      }
+
+      .hero-inner {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .profile-wrapper {
+        justify-content: center;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">AN</div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div class="profile-wrapper">
+        <img src="pfp.jpg" alt="Ayeza Profile" class="profile-pic" onerror="this.style.border='2px solid red'; console.warn('profile image failed to load:', this.src)" />
+      </div>
+      <div class="hero-text">
+        <h1>Hi, I’m Ayeza</h1>
+        <p>A Computer Science student passionate about building clean, user-focused digital experiences.</p>
+        <p>Aspiring full-stack developer | React, Python, JavaScript</p>
+        <p>Eager to contribute to real-world projects and collaborate within dynamic development teams.</p>
+        <div>
+          <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <div class="about-card">
+        <p><strong>Background:</strong> Dedicated and passionate computer science student with strong academic and practical experience.</p>
+        <p><strong>Languages:</strong> Proficient in English & Urdu.</p>
+        <p><strong>Key Strengths:</strong> Time management, problem-solving, analytical skills.</p>
+        <p><strong>Personality:</strong> Curious, adaptable, growth-oriented, effective communicator, and team player.</p>
+      </div>
+      <div class="about-card">
+        <p><strong>Interests:</strong> Developing scalable web applications, learning new technologies, and collaborating on impactful projects.</p>
+        <p><strong>Goals:</strong> To become a skilled full-stack developer and contribute to innovative solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Skills & Qualifications</h2>
+    <div class="about-content">
+      <div class="skill-card">
+        <h3>Technical Skills</h3>
+        <ul>
+          <li>Programming Languages: HTML, CSS, JavaScript, Python, C++</li>
+          <li>Frameworks & Libraries: React.js</li>
+          <li>Databases: MySQL, MongoDB</li>
+          <li>Concepts: Data Structures & Algorithms (DSA), Object-Oriented Programming (OOP), Database Management Systems (DBMS), Computer Networks, Artificial Intelligence (AI)</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Soft Skills</h3>
+        <ul>
+          <li>Time Management</li>
+          <li>Critical Thinking</li>
+          <li>Communication</li>
+          <li>Collaboration</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="section">
+    <h2>Education</h2>
+    <div class="skill-card">
+      <h3>IST University</h3>
+      <p>Bachelor of Science in Computer Science (Currently in 5th semester, graduating 2027)</p>
+      <p>Relevant coursework includes Data Structures, Object-Oriented Programming, Database Management Systems, Computer Networks, Artificial Intelligence, and Web Development.</p>
+      <p><strong>Academic Excellence:</strong> Consistently maintained A+ grades throughout my academic career.</p>
+    </div>
+    <div class="skill-card" style="margin-top: 1.5rem;">
+      <h3>Bahira College</h3>
+      <p>Achieved A+ grades in 2023</p>
+    </div>
+    <div class="skill-card" style="margin-top: 1.5rem;">
+      <h3>Matriculation</h3>
+      <p>Achieved A+ grades in 2021</p>
+    </div>
+  </section>
+
+ <section id="projects" class="section">
+  <h2>Projects</h2>
+  <p>
+    Developed full-stack projects demonstrating strong skills in front-end and back-end development. Experience with React.js and Python for building scalable web applications, and familiar with database integration using MySQL and MongoDB.
+  </p>
+
+  <div class="project-grid">
+    <!-- KMEAN -->
+    <div class="project-card">
+      <img src="kmean.jpg" alt="KMEAN clustering visualization" />
+      <div class="project-card-content">
+        <h3>KMEAN</h3>
+        <p>
+          This code applies three clustering techniques—K-Means, Hierarchical Clustering, and DBSCAN—on scaled data to group similar points. K-Means performance is evaluated using silhouette score and inertia, while DBSCAN is checked for meaningful clusters excluding noise points. The results are visualized using scatter plots for K-Means and DBSCAN, and a dendrogram for hierarchical clustering. This allows comparison of clustering quality and structure across different algorithms.
+        </p>
+        <a href="https://github.com/aiza45/kmean" target="_blank" rel="noopener" aria-label="GitHub Repository">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Text Summarizer -->
+    <div class="project-card">
+      <img src="ts.png" alt="Text Summarizer" />
+      <div class="project-card-content">
+        <h3>Text Summarizer</h3>
+        <p>
+          A powerful tool that condenses lengthy text into clear, concise summaries. Quickly grasp the main ideas without losing essential information.The application is a text summarization tool built with Python, designed to process user-provided text and generate concise summaries while preserving key information. Using NLP techniques and models, it extracts the most relevant sentences, enabling users to quickly understand large bodies of text. The interface allows easy input and output, making it suitable for academic, research, and content creation purposes.
+        </p>
+        <a href="https://github.com/aiza45/Python-PROJECTS" target="_blank" rel="noopener" aria-label="GitHub Repository">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Random Forest Classification -->
+    <div class="project-card">
+      <img src="breast.jpg" alt="Random Forest Classification" />
+      <div class="project-card-content">
+        <h3>Random Forest Classification</h3>
+        <p>
+          This project uses the Breast Cancer dataset to compare five ML models. Data is standardized and evaluated using accuracy, precision, recall, and F1-score. Random Forest achieved the best performance, supported by confusion matrix and ROC curve analysis, showing its effectiveness for binary cancer classification.
+        </p>
+        <a href="https://github.com/aiza45/Machine-learning" target="_blank" rel="noopener" aria-label="GitHub Repository">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Classification -->
+    <div class="project-card">
+      <img src="classification.jpg" alt="Classification" />
+      <div class="project-card-content">
+        <h3>Classification</h3>
+        <p>
+          Loaded the UCI Zoo dataset, scaled features, and trained five classifiers (Logistic Regression, Decision Tree, KNN, SVM, Random Forest). Evaluated via accuracy, reports, and confusion matrices to compare multiclass performance. Visualization helps identify common misclassifications for further refinement.
+        </p>
+        <a href="https://github.com/aiza45/Machine-learning/blob/main/Classification.ipynb" target="_blank" rel="noopener" aria-label="GitHub Repository">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Clusters -->
+    <div class="project-card">
+      <img src="clusters.jpg" alt="Clusters" />
+      <div class="project-card-content">
+        <h3>Clusters</h3>
+        <p>
+          Applies K-Means, Hierarchical Clustering, and DBSCAN on standardized features from the UCI Energy Efficiency dataset. Includes scatter plots and a dendrogram. K-Means shows strong clustering with low inertia; DBSCAN depends on tuning and excludes noise; Hierarchical gives comparable structure insight.
+        </p>
+        <a href="https://github.com/aiza45/Machine-learning/blob/main/ClusterAppliances.ipynb" target="_blank" rel="noopener" aria-label="GitHub Repository">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- Student Management System -->
+    <div class="project-card">
+      <img src="stu.jpg" alt="Student Management System" />
+      <div class="project-card-content">
+        <h3>Student Management System</h3>
+        <p>
+          A full-stack application to manage student records, built with React.js and MongoDB. Features include user authentication, CRUD operations, and a responsive UI.
+        </p>
+        <a href="https://github.com/aiza45/NewRepo/blob/master/Revival%20International%20school%20system.rar" target="_blank" rel="noopener" aria-label="GitHub Repository">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="contact" class="section">
+    <footer>
+      <div class="social-links" style="margin-bottom: 10px;">
+        <a href="https://github.com/aiza45" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github fa-lg"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/aiza-najam-7a1a282a7/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="mailto:aiza31419@gmail.com" aria-label="Email">
+          <i class="fas fa-envelope fa-lg"></i>
+        </a>
+      </div>
+      <p>&copy; 2025 Ayeza. All rights reserved.</p>
+    </footer>
+  </section>
+</body>
+</html>

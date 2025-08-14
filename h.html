@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Mama!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #ff6f61;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #333;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .heart {
+            color: #ff4d4d;
+            font-size: 2em;
+            animation: pulse 1.5s infinite;
+        }
+
+        .balloons {
+            position: absolute;
+            bottom: -100px;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .balloon {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background: radial-gradient(circle, #ff6f61, #ff3d3d);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .balloon::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background: #333;
+            transform: translateX(-50%);
+        }
+
+        .balloon:nth-child(2) {
+            background: radial-gradient(circle, #6b7280, #4b5563);
+            left: 20%;
+            animation-duration: 5s;
+        }
+
+        .balloon:nth-child(3) {
+            background: radial-gradient(circle, #facc15, #eab308);
+            left: 70%;
+            animation-duration: 7s;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="balloons">
+        <div class="balloon" style="left: 30%;"></div>
+        <div class="balloon" style="left: 50%;"></div>
+        <div class="balloon" style="left: 80%;"></div>
+    </div>
+    <div class="container">
+        <h1>Happy Birthday Mama!</h1>
+        <p>Dear Mama,
+Happy Birthday from your five chaotic girls! 
+Your Five Daughters 💖 <span class="heart">♥</span></p>
+    </div>
+    <script>
+        // Add random horizontal movement to balloons
+        document.querySelectorAll('.balloon').forEach(balloon => {
+            balloon.style.animation = `float ${5 + Math.random() * 2}s infinite ease-in-out`;
+            balloon.style.left = `${20 + Math.random() * 60}%`;
+        });
+    </script>
+</body>
+</html>
